@@ -11,6 +11,11 @@ const app = express();
 
 app.use(express.json());
 
+app.use(cors({
+  origin: "http://localhost:5173", // your frontend URL
+  methods: ["GET", "POST", "PATCH", "DELETE"]
+}));
+
 app.use("/api/v1/todo",TodoRoutes);
 const server = http.createServer(app);
 
