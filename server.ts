@@ -1,6 +1,7 @@
 import "dotenv/config";
 import http from 'http'
 import express from 'express'
+import cors from 'cors'
 import config from "./config/index"
 import databaseConnect from "./database/connection"
 
@@ -12,8 +13,10 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend URL
-  methods: ["GET", "POST", "PATCH", "DELETE"]
+  origin: "http://localhost:5175",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use("/api/v1/todo",TodoRoutes);

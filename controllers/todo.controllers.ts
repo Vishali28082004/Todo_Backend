@@ -2,9 +2,9 @@ import { TodoData } from "../models/todo.model"
 import { Request, Response } from "express";
 
 const createData = async (req: Request,res: Response) =>{
-    const {title,description} = req.body;
+    const {title,description,isCompleted} = req.body;
     console.log('req.body: ', req.body);
-    const info = await TodoData.create({title,description})
+    const info = await TodoData.create({title,description,isCompleted})
 
     return res.status(201).json({
         status : "Success",
@@ -43,11 +43,11 @@ const getById = async(req: Request,res: Response)=>{
 
 const updateData = async(req:Request,res:Response) =>{
     const {todoId} = req.params
-    const {title,description} = req.body;
+    const {title,description,isCompleted} = req.body;
     const info = await TodoData.findByIdAndUpdate(todoId,
         {
             $set:{
-               title,description
+               title,description,isCompleted
             }
         },
         {

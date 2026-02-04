@@ -26,6 +26,7 @@
     "@jridgewell/gen-mapping": "^0.3.13",
     "@types/body-parser": "^1.19.6",
     "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.6",
     "@types/ip": "^1.1.3",
